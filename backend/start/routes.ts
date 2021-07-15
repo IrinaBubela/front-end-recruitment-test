@@ -29,6 +29,10 @@ Route.get('/bacon', async ({ view }) => {
   return view.render('bacon')
 })
 
+Route.get('/contact', async ({ view }) => {
+  return view.render('contact')
+})
+
 Route.get('/checkout', async ({ view }) => {
   const state = {
     cart: {

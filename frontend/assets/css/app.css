@@ -8,16 +8,6 @@ html, body {
   position: relative;
 }
 
-body:before {
-  content: '';
-  background: #5A45FF;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 6px;
-  position: absolute;
-}
-
 * {
   margin: 0;
   padding: 0;
@@ -29,13 +19,10 @@ a {
 }
 
 main {
-  max-width: 620px;
-  margin: auto;
-  height: 100vh;
-  padding: 0 30px;
-  align-items: center;
   display: flex;
   justify-content: center;
+  align-items: center;
+  min-width: 100vw;
 }
 
 .title {
@@ -54,27 +41,63 @@ p {
   margin-bottom: 20px;
 }
 
-main ul {
-  list-style: none;
+section{
+  display: flex;
 }
 
-main img {
-  max-width: 100%;
+img{
+  width: 300px;
 }
 
-main li {
-  margin-bottom: 5px;
+.personal-info span{
+  text-transform: uppercase;
+  font-size: 18px;
+}
+
+.container-receipt{
+  width: 30%;
+}
+
+.form-line{
+  width: 100%;
+  margin-top: .8em;
+}
+
+.form-group-line{
   position: relative;
-  padding-left: 25px;
 }
 
-main li:before {
-  content: '—';
+.form-group-line .form-control{
+  width: 100%;
+}
+
+.form-group {
+  position: relative;
+  margin-right: 5%;
+}
+
+.form-control {
+  padding: 10px;
+  padding-left: 5px;
+  color: gray;
+  border: 0;
+  border-radius: 5px;
+  box-shadow: 3px 5px 11px -4px #000000;
+}
+
+.form-control-label {
   position: absolute;
-  left: 0;
+  font-size: .5em;
+  left: 5px;
 }
 
-main code {
-  font-size: 16px;
-  background: #e6e2ff;
+.btn-complete{
+  min-width: 100%;
+  margin-top: 1em;
+  background-color: rgba(128, 201, 55, 0.845);
+  border: 0;
+  color: #fff;
+  text-transform: uppercase;
+  padding: 1em 2em;
+  border-radius: 5px;
 }

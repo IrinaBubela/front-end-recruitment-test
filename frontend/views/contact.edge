@@ -1,0 +1,81 @@
+@layout('layouts/main')
+@set('title', 'Contact')
+
+@section('body')
+
+
+<div class='container'>
+  <div class="container-form">
+    <form>
+      <div class="personal-info">
+        <span class="title">
+          Personal information
+        </span>
+        <div class="form-line" style="display:flex; justify-content: space-between">
+          <div class="form-group">
+            <label class="form-control-label" for="fname">First Name</label>
+            <input class="form-control" type="text" id="fname" name="fname" value="Elon">
+          </div>
+          <div class="form-group">
+            <label class="form-control-label" for="lname">Last Name</label>
+            <input class="form-control" type="text" id="lname" name="lname" value="Musk">
+          </div>
+        </div>
+        <div class="form-line">
+          <div class="form-group-line">
+            <label class="form-control-label" for="email">Email</label>
+            <input class="form-control" type="text" id="email" name="email" value="elon@spacex.com">
+          </div>
+        </div>
+        <div class="form-line" style="display:flex; justify-content: space-between">
+          <div class="form-group">
+            <label class="form-control-label" for="fname">Country</label>
+            <input class="form-control" type="text" id="fname" name="fname" value="United States">
+          </div>
+          <div class="form-group">
+            <label class="form-control-label" for="lname">Phone Number</label>
+            <input class="form-control" placeholder="lkj" type="text" id="lname" name="lname" value="1001">
+          </div>
+        </div>
+        <div class="form-line">
+          <div class="form-group-line">
+            <label class="form-control-label" for="email">Email</label>
+            <input class="form-control" type="text" id="email" name="email" value="elon@spacex.com">
+          </div>
+        </div>
+      </div>
+
+      <div class="personal-info">
+        <span class="title">
+          Payment Details
+        </span>
+        <div class="form-line">
+          <div class="form-group-line">
+            <label class="form-control-label" for="email">Credit Card Number</label>
+            <input class="form-control" type="text" id="email" name="email" value="0000 - 0000 - 0000 - 0000">
+          </div>
+        </div>
+        <div class="form-line" style="display:flex; justify-content: space-between">
+          <div class="form-group">
+            <label class="form-control-label" for="card-number">Security Code</label>
+            <input class="form-control" type="text" id="card-number" name="card-number" value="***">
+          </div>
+          <div class="form-group">
+            <label class="form-control-label" for="lname">Expiration Date</label>
+            <input class="form-control" placeholder="lkj" type="text" id="lname" name="lname"value="MM / YY">
+          </div>
+        </div>
+        <div class="form-line">
+          <button class="btn-complete">Complete Purchase</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="container-receipt">
+    <div class="card">
+     
+    </div>
+  </div>
+</div>
+@end
+

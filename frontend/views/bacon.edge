@@ -5,4 +5,21 @@
   @!component('snowdog/bacon', {
     img: '/images/bacon.jpg'
   })
+
+
+
+<script>
+  const btn = document.getElementsByTagName("button")[0];
+  const section = document.getElementsByTagName("section")[1];
+  btn.addEventListener("click", ()=>{
+    const elmnt = document.getElementsByTagName("img")[0];
+    var cln = elmnt.cloneNode(true);
+    elmnt.before(cln);
+  })
+</script>
+
 @end
+
+
+
+
