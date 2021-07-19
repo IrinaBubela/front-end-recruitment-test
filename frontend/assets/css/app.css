@@ -23,13 +23,36 @@ main {
   justify-content: center;
   align-items: center;
   min-width: 100vw;
+  min-height: 100vh;
 }
 
 .title {
-  font-size: 50px;
+  font-size: 14px;
   line-height: 50px;
   margin-bottom: 10px;
+  text-transform: uppercase;
+  font-weight: 900;
   color: #17161A;
+}
+
+.title img{
+  width: 12px;
+  margin-left: 3px;
+}
+
+.title > div {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: -30px;
+  background-color: rgb(50, 48, 48);
+  color: #fff;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  margin-top: 15px;
+  text-align: center;
 }
 
 .subtitle {
@@ -49,26 +72,54 @@ img{
   width: 300px;
 }
 
-.personal-info span{
-  text-transform: uppercase;
-  font-size: 18px;
+.personal-info{
+  position: relative;
 }
 
-.container-receipt{
-  width: 30%;
+.container{
+  width: 75vw;
+  padding: 2em 3.5em;
+  display: flex;
+  align-items: flex-start;
+  background-color: rgba(225, 225, 225, 0.872);
+}
+
+.container-form{
+  width: 65%;
+  padding: 1em 0 1em 3em ;
 }
 
 .form-line{
+  display: flex;
+  justify-content: space-between;
   width: 100%;
-  margin-top: .8em;
+  margin-top: 1.5em;
+}
+
+.form-line .form-group {
+  width: 50%;
+}
+
+.form-line .form-group .form-control{
+  width: 100%;
 }
 
 .form-group-line{
   position: relative;
 }
 
-.form-group-line .form-control{
+.form-line .form-group-line {
   width: 100%;
+}
+
+.form-line .form-group-line .form-control {
+  width: 95%;
+}
+.visa-img{
+  width: 30px;
+  position: absolute;
+  right: 2em;
+  top: 6px;
 }
 
 .form-group {
@@ -77,27 +128,96 @@ img{
 }
 
 .form-control {
-  padding: 10px;
+  padding: 20px;
+  padding-bottom: 10px;
   padding-left: 5px;
   color: gray;
   border: 0;
-  border-radius: 5px;
-  box-shadow: 3px 5px 11px -4px #000000;
+  border-radius: 3px;
+  box-shadow: 0px 2px 6px -6px #000000;
 }
 
 .form-control-label {
   position: absolute;
   font-size: .5em;
   left: 5px;
+  padding-top: 5px;
+  margin-bottom: 8px;
+  color: rgb(74, 74, 74);
+  font-weight: 500;
 }
 
 .btn-complete{
-  min-width: 100%;
+  display: flex;
+  justify-content: center;
+  min-width: 99%;
   margin-top: 1em;
-  background-color: rgba(128, 201, 55, 0.845);
+  background-color: rgb(140, 199, 0);
   border: 0;
   color: #fff;
   text-transform: uppercase;
   padding: 1em 2em;
   border-radius: 5px;
+}
+
+.btn-complete img{
+  width: 15px;
+  margin-right: 7px;
+}
+
+.container-receipt{
+  display: flex;
+  align-items: center;
+  width: 35%;
+  margin-top: 4.1em;
+}
+
+.container-receipt .card{
+  width: 80%;
+  background-color: #fff;
+  padding: .3em ;
+  border-radius: 3px;
+}
+
+.container-receipt .card-inner{
+  border: 2px dashed rgb(194, 194, 194);
+  padding: 1em;
+}
+
+.container-receipt .card .card-section {
+  border-bottom: 1px dashed rgb(194, 194, 194);
+  padding: 1em;
+}
+
+.container-receipt .card .card-section:last-child {
+  border: 0;
+  font-weight: 600;
+}
+
+.container-receipt .card .card-section:last-child span:last-child{
+  font-size: 30px;
+}
+
+.container-receipt .card .card-section .card-title{
+  text-transform: uppercase;
+  font-weight: 600;
+  padding-bottom: 1em;
+}
+
+.container-receipt .card .card-section .card-item{
+  display: flex;
+  justify-content: space-between;
+}
+
+/* validation */
+.success{
+  color: green !important;
+  position: relative; 
+  display: inline-block !important;
+}
+
+.error{ 
+  color: #c51244 !important;
+  position: relative; 
+  display: inline-block !important;
 }
