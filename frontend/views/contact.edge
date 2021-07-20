@@ -14,13 +14,13 @@
         </span>
         <div class="form-line" style="display:flex; margin-top: 0">
           <div class="form-group">
-            <label class="form-control-label" for="fname">First Name</label>
-            <input class="form-control" type="text" id="fname" name="fname" placeholder="Elon">
+            <label class="form-control-label" for="firstName">First Name</label>
+            <input class="form-control" type="text" id="firstName" name="firstName" placeholder="Elon">
             <small></small>
           </div>
           <div class="form-group">
-            <label class="form-control-label" for="lname">Last Name</label>
-            <input class="form-control" type="text" id="lname" name="lname" placeholder="Musk">
+            <label class="form-control-label" for="lastName">Last Name</label>
+            <input class="form-control" type="text" id="lastName" name="lastName" placeholder="Musk">
             <small></small>
           </div>
         </div>
@@ -38,8 +38,8 @@
             <small></small>
           </div>
           <div class="form-group">
-            <label class="form-control-label" for="pcode">Postal Code</label>
-            <input class="form-control" type="number" id="pcode" name="pcode" placeholder="10001">
+            <label class="form-control-label" for="postalCode">Postal Code</label>
+            <input class="form-control" type="number" id="postalCode" name="postalCode" placeholder="10001">
             <small></small>
           </div>
         </div>
@@ -59,21 +59,21 @@
         </span>
         <div class="form-line" style="display:flex; margin-top: 0">
           <div class="form-group-line">
-            <label class="form-control-label" for="card-number">Credit Card Number</label>
-            <input class="form-control" type="text" id="card-number" name="card-number" placeholder="0000 - 0000 - 0000 - 0000">
+            <label class="form-control-label" for="creditCard">Credit Card Number</label>
+            <input class="form-control" type="text" id="creditCard" name="creditCard" placeholder="0000 - 0000 - 0000 - 0000">
             <img class="visa-img" src="/images/visa.svg"></img>
             <small></small>
           </div>
         </div>
         <div class="form-line" style="display:flex; justify-content: space-between">
           <div class="form-group">
-            <label class="form-control-label" for="card-code">Security Code</label>
-            <input class="form-control" style="-webkit-text-security: square;" type="password" id="ccv" name="card-code" placeholder="***"  autocomplete="on">
+            <label class="form-control-label" for="CVV">Security Code</label>
+            <input class="form-control" style="-webkit-text-security: square;" type="password" id="CVV" name="CVV" placeholder="***"  autocomplete="on">
             <small></small>
           </div>
           <div class="form-group">
-            <label class="form-control-label" for="exp-date">Expiration Date</label>
-            <input class="form-control" type="text" id="exp-date" name="exp-date" placeholder="MM / YY">
+            <label class="form-control-label" for="expDate">Expiration Date</label>
+            <input class="form-control" type="text" id="expDate" name="expDate" placeholder="MM / YY">
             <small></small>
           </div>
         </div>
@@ -97,35 +97,44 @@
             <span>$ 380</span>
           </div>
         </div>
-        <div class="card-section">
-          <div class="card-item">
-            <span>Total Purchases</span>
-            <span>$ 960.00</span>
-          </div>
-          <div class="card-item">
-            <span>Estimated tax</span>
-            <span>$ 0</span>
-          </div>
+       <div class="card-section">
+        <div class="card-item">
+          <span>Total Purchases</span>
+          <span>$ 960.00</span>
         </div>
-        <div class="card-section">
-          <div class="card-item">
-            <span>Total</span>
-            <span>$ 960</span>
-          </div>
+        <div class="card-item">
+          <span>Estimated tax</span>
+          <span>$ 0</span>
         </div>
+      </div>
+      <div class="card-section">
+        <div class="card-item">
+          <span>Total</span>
+          <span>$ 960</span>
+        </div>
+      </div>
       </div>
     </div>
   </div>
 </div>
-
+<div class="success-msg">
+  <i class="fa fa-check"></i>
+  This is a success message.
+</div>
+<div class="warning-msg">
+  <i class="fa fa-warning"></i>
+  This is a warning message.
+</div>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script>
-const fname = document.querySelector('#fname');
-const lname = document.querySelector('#lname');
+const firstName = document.querySelector('#firstName');
+const lastName = document.querySelector('#lastName');
 const emailEl = document.querySelector('#email');
 const phone = document.querySelector('#phone');
-const pcode = document.querySelector('#pcode');
-const creditCardNumber = document.querySelector('#card-number');
-const expDate = document.querySelector('#ccv');const ccvNumber = document.querySelector('#exp-date');
+const postalCode = document.querySelector('#postalCode');
+const creditCard = document.querySelector('#creditCard');
+const CVV = document.querySelector('#CVV');
+const expDate = document.querySelector('#expDate');
 
 const form = document.querySelector('#signup');
 
@@ -134,25 +143,25 @@ form.addEventListener('input', function (e) {
       case 'email':
         checkEmail();
         break;
-      case 'fname':
+      case 'firstName':
         checkFirstName();
         break;
-      case 'lname':
+      case 'lastName':
         checkLastName();
         break;
       case 'phone':
         checkPhoneNumber();
         break;
-      case 'pcode':
+      case 'postalCode':
         checkPostalCode();
         break;
-      case 'card-number':
-        checkCreditCardNumber();
+      case 'creditCard':
+        checkcreditCard();
         break;
-      case 'ccv':
-        checkCCV();
+      case 'CVV':
+        checkCVV();
         break;
-      case 'exp-date':
+      case 'expDate':
         checkExpDate();
         break;
     }
@@ -176,14 +185,14 @@ const checkFirstName = () => {
     let valid = false;
     const min = 3,
         max = 25;
-    const username = fname.value.trim();
+    const username = firstName.value.trim();
 
     if (!isRequired(username)) {
-        showError(fname, 'First cannot be blank.');
+        showError(firstName, 'First cannot be blank.');
     } else if (!isBetween(username.length, min, max)) {
-        showError(fname, `First must be between ${min} and ${max} characters.`)
+        showError(firstName, `First must be between ${min} and ${max} characters.`)
     } else {
-        showSuccess(fname);
+        showSuccess(firstName);
         valid = true;
     }
     return valid;
@@ -193,14 +202,14 @@ const checkLastName = () => {
     let valid = false;
     const min = 3,
         max = 25;
-    const username = lname.value.trim();
+    const username = lastName.value.trim();
 
     if (!isRequired(username)) {
-        showError(lname, 'Last name cannot be blank.');
+        showError(lastName, 'Last name cannot be blank.');
     } else if (!isBetween(username.length, min, max)) {
-        showError(lname, `Last name must be between ${min} and ${max} characters.`)
+        showError(lastName, `Last name must be between ${min} and ${max} characters.`)
     } else {
-        showSuccess(lname);
+        showSuccess(lastName);
         valid = true;
     }
     return valid;
@@ -226,46 +235,46 @@ const checkPhoneNumber = () => {
 const checkPostalCode = () => {
     let valid = false;
     const count = 5;
-    const postalCode = pcode.value.trim();
+    const postalCodeValue = postalCode.value.trim();
 
-    if (!isRequired(postalCode)) {
-        showError(pcode, 'Postal Code cannot be blank.');
-    } else if (!(postalCode.length == count)) {
-        showError(pcode, `Postal Code must have ${count} characters.`)
+    if (!isRequired(postalCodeValue)) {
+        showError(postalCode, 'Postal Code cannot be blank.');
+    } else if (!(postalCodeValue.length == count)) {
+        showError(postalCode, `Postal Code must have ${count} characters.`)
     } else {
-        showSuccess(pcode);
+        showSuccess(postalCode);
         valid = true;
     }
     return valid;
 }
 
-const checkCreditCardNumber = () => {
+const checkcreditCard = () => {
     let valid = false;
     const count = 16;
-    const cardNumber = creditCardNumber.value.trim();
+    const cardNumber = creditCard.value.trim();
 
     if (!isRequired(cardNumber)) {
-        showError(creditCardNumber, 'Card Number cannot be blank.');
+        showError(creditCard, 'Card Number cannot be blank.');
     } else if (!(cardNumber.length == count)) {
-        showError(creditCardNumber, `Card Number must have ${count} characters.`)
+        showError(creditCard, `Card Number must have ${count} characters.`)
     } else {
-        showSuccess(creditCardNumber);
+        showSuccess(creditCard);
         valid = true;
     }
     return valid;
 }
 
-const checkCCV= () => {
+const checkCVV= () => {
     let valid = false;
     const count = 3;
-    const ccv = ccvNumber.value.trim();
+    const cvvValue = CVV.value.trim();
 
-    if (!isRequired(ccv)) {
-        showError(ccvNumber, 'Security Code cannot be blank.');
-    } else if (!(ccv.length == count)) {
-        showError(ccvNumber, `Security Code must have ${count} characters.`)
+    if (!isRequired(cvvValue)) {
+        showError(CVV, 'Security Code cannot be blank.');
+    } else if (!(cvvValue.length == count)) {
+        showError(CVV, `Security Code must have ${count} characters.`)
     } else {
-        showSuccess(ccvNumber);
+        showSuccess(CVV);
         valid = true;
     }
     return valid;
@@ -276,9 +285,9 @@ const checkExpDate= () => {
     const expDateValue = expDate.value.trim();
 
     if (!isRequired(expDateValue)) {
-        showError(expDate, 'Security Code cannot be blank.');
+        showError(expDate, 'Expiration Date cannot be blank.');
     } else if (!isExpDateValid(expDateValue)) {
-        showError(expDate, `Security Code is not valid.`)
+        showError(expDate, `Expiration Date is not valid.`)
     } else {
         showSuccess(expDate);
         valid = true;
@@ -296,8 +305,8 @@ const isEmailValid = (email) => {
 };
 
 const isExpDateValid = (expDate) => {
-   const re =/^(0[1-9]|1[0-2])\/?([0-9]{4}|[0-9]{2})$/;
-    return re.test(expDate);
+  const re =/^(0[1-9]|1[0-2])\/?([0-9]{4}|[0-9]{2})$/;
+  return re.test(expDate);
 }
 
 const showError = (input, message) => {
@@ -318,6 +327,20 @@ const showSuccess = (input) => {
     const error = formField.querySelector('small');
     error.textContent = '';
 }
+
+/* POST REQUEST*/
+form.onsubmit = function(e) {
+  e.preventDefault();
+  let formData = new FormData(form);
+
+  axios.post('/order', formData)
+    .then(res=> {
+      alert(res.data.message)
+    }).catch(error => {
+      alert(error);
+    })
+}
+
 </script>
 @end
 

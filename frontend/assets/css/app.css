@@ -2,7 +2,7 @@
 
 html, body {
   background-color: #F7F8FA;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Roboto', sans-serif;
   height: 100vh;
   color: #46444c;
   position: relative;
@@ -220,4 +220,25 @@ img{
   color: #c51244 !important;
   position: relative; 
   display: inline-block !important;
+}
+
+.success-msg {
+  position: absolute;
+  left: -50%;
+  top: -50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  display: none;
+  color: #270;
+  background-color: #DFF2BF;
+}
+.warning-msg {
+  display: none;
+  position: absolute;
+  left: -50%;
+  top: -50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #9F6000;
+  background-color: #FEEFB3;
 }
